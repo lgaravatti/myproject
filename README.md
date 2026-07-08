@@ -24,7 +24,7 @@ Na computação, sintaxe é a gramática; semântica é o significado real. A In
 
 Mas o *troubleshooting* em ambientes críticos exige conhecimento semântico. Requer entender o **conceito base**. E é isso que eu decidi aprofundar nessa nova fase.
 
-![A ponta visível fora da água é o treabalho feito pela IA. A parte massiva submersa representa os fundamentos: SO, Kernel, Rede TCP/IP, Memória, onde os problemas reais acontecem](https://drive.google.com/u/0/drive-viewer/AKGpihaLI1uhYQnbdAFiolCkh21U2phCBBviWHJ9DgxecVtHGVXByQ9ZEL6Gl-bR6ijj8FGI0GoAMe7rgd_8roXdL2gYhDKFBKRbNN0=s2560?auditContext=forDisplay)
+![A ponta visível fora da água é o treabalho feito pela IA. A parte massiva submersa representa os fundamentos: SO, Kernel, Rede TCP/IP, Memória, onde os problemas reais acontecem](imagens/iceberg.jpg)
 
 * A IA sabe escrever uma query SQL. Mas se o banco der *lock* em produção, eu preciso entender o conceito de concorrência e transações ACID para destravar o sistema.
 * A IA escreve o arquivo do Docker perfeitamente. Mas se o container estourar o limite e matar o nó inteiro por *OOMKilled* (Out of Memory), eu preciso entender como o Kernel do Linux gerencia recursos e memória virtual.
