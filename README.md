@@ -6,7 +6,7 @@ Se você trabalha criando, desenvolvendo ou mantendo infraestrutura e sistemas d
 
 Quando o sistema está em cruzeiro, o piloto automático é perfeito. Mas quando a turbulência começa, o painel pisca em vermelho e a aplicação trava sem motivo aparente, o piloto automático desliga e o controle volta sempre para as minhas mãos. E é nessa hora, entre war room e war room, que saber "escovar bits" separa os passageiros dos verdadeiros engenheiros.
 
-Foi por causa dessa percepção que eu decidi iniciar a minha série **Além do Prompt**. Um movimento pessoal de voltar aos fundamentos, e decidi compartilhar cada passo desse caminho com vocês por aqui.
+Foi por causa dessa percepção que eu decidi iniciar a minha série que ainda não dei um nome "fancy". Um movimento pessoal de voltar aos fundamentos, e decidi compartilhar cada passo desse caminho com vocês por aqui.
 
 ---
 
@@ -36,7 +36,7 @@ Saber a resposta que a máquina me dá é inútil se eu não consigo diagnostica
 
 ---
 
-## 3. O meu plano em Além do Prompt
+## 3. O meu plano nessa série que ainda não dei um nome "fancy"
 
 O avanço da IA não vai eliminar o profissional de tecnologia, mas vai aniquilar o "tarefeiro" – aquele que sobreviveu até hoje decorando comandos e copiando tutoriais sem entender como as peças se conectam por debaixo dos panos. 
 
@@ -48,4 +48,4 @@ Para não me tornar obsoleto e continuar evoluindo para níveis de especializaç
 
 O futuro pertence a quem entende as abstrações tecnológicas profundamente o suficiente para saber quando a Inteligência Artificial está alucinando. A máquina pode pilotar o avião na calmaria, mas é o nosso conhecimento de base que vai impedir a queda durante a tempestade.
 
-Bem-vindos a **Além do Prompt**. Nos próximos artigos, vou postar os artigos que sairam das anotações que eu fiz nos caminhos que usei para evoluir meus conhecimentos e compartilhar com vocês os fundamentos que estou (re)estudando para não ser engolido pelo piloto automático. Vamos juntos?
+Bem-vindos a nessa série que ainda não dei um nome "fancy". Nos próximos artigos, vou postar os artigos que sairam das anotações que eu fiz nos caminhos que usei para evoluir meus conhecimentos e compartilhar com vocês os fundamentos que estou (re)estudando para não ser engolido pelo piloto automático. Vamos juntos?
