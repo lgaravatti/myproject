@@ -4,11 +4,11 @@ Migrar cargas de trabalho para o Kubernetes com a promessa de reduzir custos e g
 
 Nos últimos três anos, nós vivemos intensamente esse desafio. Quando começamos a desenhar essa transição, tínhamos 300+ desenvolvedores cuidando de inúmeros serviços rodando em Amazon ECS Fargate. O cenário era custos subindo devido ao superdimensionamento crônico, marretadas(?) para garantir a governança e lentidão no escalonamento de recursos.
 
-Nossa vontade era criar algo mais controlável por um time de infra como o nosso, ai começamos a pensar nas alternativas, a resposta do do mercado seria: "ir para o EKS e adotar GitOps tradicional". O problema é que, em uma instituição gigante como a que estamos inseridos, nada é fácil assim, e as coisas não se mudam da noite para o dia. Tínhamos amarras de governança muito fortes e imutáveis:
+Nossa vontade era criar algo mais controlável por um time de infra como o nosso, ai começamos a pensar nas alternativas, a resposta do do mercado seria: "ir para o EKS e adotar GitOps tradicional". O problema é que, em uma instituição gigante como a que estamos inseridos, nada é fácil assim, e as coisas não se mudam da noite para o dia. Tínhamos padrões organizacionais e imutáveis:
 
 1. Infraestrutura apenas via Terraform para provisionamento de recursos.
-2. Pipelines e workflows com padrões preestabelecidos bastante desafiadores, já tinham prontos e sem possibilidade de customização.
-3. Poderiamos optar pelo uso do ArgoCD, mas sem o modelo tradicional de GitOps, porque isso iria influenciar os processos que já são conhecidos pelos times, e teria uma sobrecarga de treinamentos apenas para esse processo. O deploy precisava ser feito enviando o pacote do YAML direto para o Argo via API/CLI.
+2. Pipelines e workflows com padrões preestabelecidos bastante desafiadores (já vinham prontos e sem possibilidade de customização).
+3. Adotamos o ArgoCD sem o modelo tradicional de GitOps para evitar fricção cultural e a sobrecarga de treinar centenas de desenvolvedores em novos processos. O deploy precisava ser feito enviando o pacote YAML diretamente para o Argo via API/CLI
 
 Com um time extremamente enxuto, nossa missão parecia impossível. Criamos a primeira poc e esbarramos em um manifesto cheio de complexidade de complicaria ainda mais a vida dos times de desenvolvimento de produtos. Mas após uma analíse minuciosa dos dados exigidos pelos charts e de ferramentas disponíveis no mercado, nós resolvemos o problema criando um operador Kubernetes customizado dentro de casa e não usamos Go, usamos Python puro inicialmente e Metacontroller, depois migramos para FastAPI e seguimos usando o Metacontroller mesmo.
 
