@@ -10,11 +10,11 @@ Nossa vontade era criar algo mais controlável por um time de infra como o nosso
 2. Pipelines e workflows com padrões estabelecidos totalmente desafiadores, já tinham prontos e sem possibilidade de customização.
 3. Poderiamos optar pelo uso do ArgoCD, mas sem o modelo tradicional de GitOps (sem repositórios dedicados para os manifestos de apps). O deploy precisava ser feito enviando o pacote do YAML direto para o Argo via API/CLI.
 
-Com um time extremamente enxuto, nossa missão parecia impossível. Criamos a primeira poc e esbarramos em um manifesto cheio de complexidade de complicaria ainda mais a vida de quem fosse subir as apps. Mas após uma analíse minuciosa dos dados exigidos pelos charts e de algumas coisas que tinha no mercado, nós resolvemos o problema criando um operador Kubernetes customizado dentro de casa — e não usamos Go, usamos Python puro inicialmente e Metacontroller, depois migramos para FastAPI e seguimos usando o Metacontroller mesmo.
+Com um time extremamente enxuto, nossa missão parecia impossível. Criamos a primeira poc e esbarramos em um manifesto cheio de complexidade de complicaria ainda mais a vida dos times de desenvolvimento de produtos. Mas após uma analíse minuciosa dos dados exigidos pelos charts e de ferramentas disponíveis no mercado, nós resolvemos o problema criando um operador Kubernetes customizado dentro de casa e não usamos Go, usamos Python puro inicialmente e Metacontroller, depois migramos para FastAPI e seguimos usando o Metacontroller mesmo.
 
 O Motivo de termos usado Python e não GO talvez era mais simples do que parece, era o que conhecíamos.
 
-O resultado de três anos de evolução contínua? Uma economia de 75% no custo de produção e e que chega em 90% em ambientes não produtivos. Essa economia chega a  mais de R$ 1 milhão por ano devolvidos em horas de engenharia que os times de produto gastavam brigando com a infraestrutura. No total, geramos uma eficiência combinada estimada é de mais de R$100 mil por mês.
+O resultado de três anos de evolução contínua? Uma economia de75% no custo de produção, e chegando em 90% em ambientes não produtivos. Essa economia chega a  mais de R$ 1 milhão por ano devolvidos em horas de engenharia que os times de produto gastavam brigando com a infraestrutura. No total, geramos uma eficiência combinada estimada é de mais de R$100 mil por mês, tudo isso sem alterar nenhum processo existente na empresa.
 
 Neste artigo, vou te mostrar os bastidores dessa arquitetura, os principais desafios que enfrentamos na linha de frente ao longo desses três anos e como utilizamos o kuberntes para para forçar padrões sem matar a velocidade dos desenvolvedores.
 
