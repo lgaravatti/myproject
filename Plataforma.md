@@ -7,22 +7,22 @@ Nos últimos três anos, nós vivemos intensamente esse desafio. Quando começam
 Nossa vontade era criar algo mais controlável por um time de infra como o nosso, ai começamos a pensar nas alternativas, a resposta do do mercado seria: "ir para o EKS e adotar GitOps tradicional". O problema é que, em uma instituição gigante como a que estamos inseridos, nada é fácil assim, e as coisas não se mudam da noite para o dia. Tínhamos amarras de governança muito fortes e imutáveis:
 
 1. Infraestrutura aapenas via Terraform para provisionamento de recursos.
-2. Pipelines engessados e trancados no GitHub Actions, com workflows prontos e sem possibilidade de customização.
-3.	Poderiamos optar pelo uso do ArgoCD, mas sem o modelo tradicional de GitOps (sem repositórios dedicados para os manifestos de apps). O deploy precisava ser feito enviando o pacote do YAML direto para o Argo via API/CLI.
+2. Pipelines e workflows com padrões estabelecidos totalmente desafiadores, já tinham prontos e sem possibilidade de customização.
+3. Poderiamos optar pelo uso do ArgoCD, mas sem o modelo tradicional de GitOps (sem repositórios dedicados para os manifestos de apps). O deploy precisava ser feito enviando o pacote do YAML direto para o Argo via API/CLI.
 
-Com um time enxuto de 4 pessoas, mas com mas com apenas 2 analistas dedicados a trabalhar nesse problema durante todo o início do ciclo, nossa missão parecia impossível. Criamos a primeira poc e esbarramos em um manifesto cheio de complexidade de complicaria ainda mais a vida de quem fosse subir as apps. Mas após uma analíse minuciosa dos dados exigidos pelos charts e de algumas coisas que tinha no mercado, nós resolvemos o problema criando um operador Kubernetes customizado dentro de casa — e não usamos Go, usamos Python puro inicialmente e Metacontroller, depois migramos para FastAPI e seguimos usando o Metacontroller mesmo.
+Com um time extremamente enxuto, nossa missão parecia impossível. Criamos a primeira poc e esbarramos em um manifesto cheio de complexidade de complicaria ainda mais a vida de quem fosse subir as apps. Mas após uma analíse minuciosa dos dados exigidos pelos charts e de algumas coisas que tinha no mercado, nós resolvemos o problema criando um operador Kubernetes customizado dentro de casa — e não usamos Go, usamos Python puro inicialmente e Metacontroller, depois migramos para FastAPI e seguimos usando o Metacontroller mesmo.
 
 O Motivo de termos usado Python e não GO talvez era mais simples do que parece, era o que conhecíamos.
 
-O resultado de três anos de evolução contínua? Uma economia de75% no custo de produção, e chegando em 90% em ambientes não produtivos. Essa economia chega a  mais de R$ 1 milhão por ano devolvidos em horas de engenharia que os times de produto gastavam brigando com a infraestrutura. No total, geramos uma eficiência combinada estimada é de mais de R$100 mil por mês.
+O resultado de três anos de evolução contínua? Uma economia de 75% no custo de produção e chegando em 90% em ambientes não produtivos. Essa economia chega a  mais de R$ 1 milhão por ano devolvidos em horas de engenharia que os times de produto gastavam brigando com a infraestrutura. No total, geramos uma eficiência combinada estimada é de mais de R$100 mil por mês.
 
-Neste artigo, vou te mostra os bastidores dessa arquitetura, os principais desafios que enfrentamos na linha de frente ao longo desses três anos e como utilizamos o kuberntes para para forçar padrões sem matar a velocidade dos desenvolvedores.
+Neste artigo, vou te mostrar os bastidores dessa arquitetura, os principais desafios que enfrentamos na linha de frente ao longo desses três anos e como utilizamos o kuberntes para para forçar padrões sem matar a velocidade dos desenvolvedores.
 
 ---
 
 ## O Cenário no ECS e o Peso da Governança
 
-O ECS Fargate é uma ótima tecnologia para iniciar algo, pois ele facilita muito a rampagem, mas conforme os times de produto crescem, a falta de padronização e as travas corporativas tem o seu preço. No nosso cenário original, os desenvolvedores tinham autonomia para criar suas Tasks definitos ao seu flavor. O resultado prático disso era um grande desafio de conformidade.
+O ECS Fargate é uma ótima tecnologia para iniciar algo, pois ele facilita muito a rampagem, mas conforme os times de produto crescem, a falta de padronização e os desafiadores padrões corporativas tem o seu preço. No nosso cenário original, os desenvolvedores tinham autonomia para criar suas Tasks definitions ao seu flavor. O resultado prático disso era um grande desafio de conformidade.
 
 E para ser completamente honesto: nós tínhamos um processo interno que eu odiava com todas as minhas forças, chamávamos de  "Marathon".
 
