@@ -26,7 +26,7 @@ O ECS Fargate é uma ótima tecnologia para iniciar algo, pois ele facilita muit
 
 E para ser completamente honesto: nós tínhamos um processo interno que eu odiava com todas as minhas forças, chamávamos de  "Marathon".
 
-O Marathon era uma reunião recorrente e extremamente desgastante. O objetivo era juntar o time de infraestrutura e os responsáveis pelo desenvolvimento de produtos para ficar resolvedo coisas que estavam fora dos padrões, por exemplo:  caçando recursos órfãos na AWS e implorando para que os times colocassem tags básicas nos recursos — coisas simples, como a tag da `squad`, o dono do serviço ou o centro de custo. Ou em outros casos, apontar que os recursos estavam desperdiçando 95% da infraestrutura provisionada que ele deveria ter um trabalhao rightsizing. Era um trabalho de herói, totalmente manual, reativo e ineficiente. Mas talvez o nosso grande problema era mesmo a falta de tags.
+O Marathon era uma reunião recorrente e extremamente desgastante. O objetivo era juntar o time de infraestrutura e os responsáveis pelo desenvolvimento de produtos para ficar resolvedo coisas que estavam fora dos padrões, por exemplo:  caçando recursos órfãos na AWS e implorando para que os times colocassem tags básicas nos recursos, coisas simples, como a tag da squad dona do serviço. Ou em outros casos, apontar que os recursos estavam desperdiçando 95% da infraestrutura provisionada que ele deveria ter um trabalhao rightsizing. Era um trabalho de herói, totalmente manual, reativo e ineficiente. Mas talvez o nosso grande problema era mesmo a falta de tags.
 
 >O grande impacto disso era a cegueira total de custos. A falta dessas tags fazia com que não tivéssemos a menor visibilidade de para onde o dinheiro estava indo. Custos altíssimos de AWS chegavam e nós simplesmente não sabíamos e como muitas coisas não tinham tag, não conseguíamos ter uma visão mais granularizada dos custos, quanto cada time estava gastando na AWS, o que eles faziam e, o pior de tudo, se aquele custo sequer se justificava para o negócio. Era impossível auditar e otimizar o que não conseguíamos enxergar.
 
@@ -49,7 +49,7 @@ Percebemos que a única saída era interceptar o deploy dentro do próprio clust
 
 ## Desafio de Arquitetura: Por que Python e Metacontroller para um time tão enxuto?
 
-Quando se fala em estender o Kubernetes e criar CRDs (*Custom Resource Definitions*), o padrão de mercado quase absoluto é usar Go com Kubebuilder ou Operator SDK. No entanto, precisávamos ser pragmáticos. O Python estava no nosso dia a dia, sabíamos trabalhar com python, teríamos que aprender Go e não era o momento ainda.
+Quando se fala em estender o Kubernetes e criar CRDs (Custom Resource Definitions), o padrão de mercado quase absoluto é usar Go com Kubebuilder ou Operator SDK. No entanto, precisávamos ser pragmáticos. O Python estava no nosso dia a dia, sabíamos trabalhar com python, teríamos que aprender Go e não era o momento ainda.
 
 Foi aí que tomamos uma decisão de arquitetura pouco ortodoxa para grandes corporações, mas extremamente eficiente: escolhemos o Metacontroller e escrevemos nossa lógica de negócios em Python.
 
