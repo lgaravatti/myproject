@@ -66,7 +66,7 @@ Nossa arquitetura foi desenhada para ser simples:
 
 ---
 
-## O real ganho com Secrets e parameters
+## O real ganho com Secrets e Parameters
 
 ---
 
